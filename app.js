@@ -28,6 +28,7 @@ new Vue({
       this.checkWin()
     },
     specialAttack: function() {
+      // Setting minimum and maximum damage for special attack
       var damage = this.calculateDamage(10, 20);
       this.monsterHealth -= damage;
       this.turns.unshift({
@@ -41,6 +42,7 @@ new Vue({
       this.checkWin()
     },
     heal: function() {
+      // Update health variable
       if (this.playerHealth <= 90) {
         this.playerHealth += 10;
       } else {
@@ -59,6 +61,7 @@ new Vue({
       return Math.max(Math.floor(Math.random() * max ) + 1, min);
     },
     monsterAttacks: function() {
+      // Set minimum/maximum damage for monster
       var damage = this.calculateDamage(5, 12);
       this.playerHealth -= damage;
       this.checkWin();
@@ -68,6 +71,7 @@ new Vue({
       });
     },
     checkWin: function() {
+      // Start new game or end game when game is over
       if (this.monsterHealth <= 0) {
         if (confirm('You Won! New Game?')) {
           this.startGame();
